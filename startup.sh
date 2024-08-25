@@ -22,15 +22,15 @@ sed -i "/^\[\/Script\/PathOfTitans.POTServerSettings\]/,/^\[/{s/^ServerMap=.*/Se
 
 # If the keys don't exist in the section, add them
 if ! grep -q "ServerName=" $CONFIG_FILE; then
-    sed -i "/^\[\/Script\/PathOfTitans.POTServerSettings\]/a ServerName=${SERVER_NAME}" $CONFIG_FILE
+    sed -i "/^\[\/Script\/PathOfTitans.IGameSession\]/a ServerName=${SERVER_NAME}" $CONFIG_FILE
 fi
 
 if ! grep -q "MaxPlayers=" $CONFIG_FILE; then
-    sed -i "/^\[\/Script\/PathOfTitans.POTServerSettings\]/a MaxPlayers=${MAX_PLAYERS}" $CONFIG_FILE
+    sed -i "/^\[\/Script\/PathOfTitans.IGameSession\]/a MaxPlayers=${MAX_PLAYERS}" $CONFIG_FILE
 fi
 
 if ! grep -q "ServerMap=" $CONFIG_FILE; then
-    sed -i "/^\[\/Script\/PathOfTitans.POTServerSettings\]/a ServerMap=${SERVER_MAP}" $CONFIG_FILE
+    sed -i "/^\[\/Script\/PathOfTitans.IGameSession\]/a ServerMap=${SERVER_MAP}" $CONFIG_FILE
 fi
 chmod +x "$UE_PROJECT_ROOT/PathOfTitans/Binaries/Linux/PathOfTitansServer-Linux-Shipping"
 "$UE_PROJECT_ROOT/PathOfTitans/Binaries/Linux/PathOfTitansServer-Linux-Shipping" PathOfTitans -log -ServerListIP=104.234.220.122 -Port=$SERVER_PORT -BranchKey=$BETA_BRANCH -AuthToken=$AG_AUTH_TOKEN -ServerGUID=$SERVER_GUID -Database=Local
