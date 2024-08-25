@@ -16,9 +16,9 @@ if ! grep -q "^\[\/Script\/PathOfTitans.POTServerSettings\]" $CONFIG_FILE; then
 fi
 
 # Replace or append the necessary settings in the correct section
-sed -i "/^\[\/Script\/PathOfTitans.POTServerSettings\]/,/^\[/{s/^ServerName=.*/ServerName=${SERVER_NAME}/}" $CONFIG_FILE
-sed -i "/^\[\/Script\/PathOfTitans.POTServerSettings\]/,/^\[/{s/^MaxPlayers=.*/MaxPlayers=${MAX_PLAYERS}/}" $CONFIG_FILE
-sed -i "/^\[\/Script\/PathOfTitans.POTServerSettings\]/,/^\[/{s/^ServerMap=.*/ServerMap=${SERVER_MAP}/}" $CONFIG_FILE
+sed -i "/^\[\/Script\/PathOfTitans.IGameSession\]/,/^\[/{s/^ServerName=.*/ServerName=${SERVER_NAME}/}" $CONFIG_FILE
+sed -i "/^\[\/Script\/PathOfTitans.IGameSession\]/,/^\[/{s/^MaxPlayers=.*/MaxPlayers=${MAX_PLAYERS}/}" $CONFIG_FILE
+sed -i "/^\[\/Script\/PathOfTitans.IGameSession\]/,/^\[/{s/^ServerMap=.*/ServerMap=${SERVER_MAP}/}" $CONFIG_FILE
 
 # If the keys don't exist in the section, add them
 if ! grep -q "ServerName=" $CONFIG_FILE; then
